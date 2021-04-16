@@ -1,8 +1,20 @@
 html {
-	font-size: $startSize;
+  font-size: $startSize;
 }
 
 body {
-	background: #f9f9f9;
-	font: $font;
+  background: #f9f9f9;
+  font: $font;
+}
+
+.btn {
+  height: auto;
+}
+
+input {
+  height: 40px;
+}
+
+main {
+  min-height: 81vh;
 }

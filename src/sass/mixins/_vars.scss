@@ -1,7 +1,7 @@
-$startSize: 10px;
+$startSize: 14px;
 
 // Font size
-$fontSize: 1.4rem;
+$fontSize: 1rem;
 
 // Padding
 $padding: 15px;
@@ -9,18 +9,18 @@ $padding: 15px;
 // Colors
 //--------------------
 $colors: (
-	accent: #ff5500,
-	primary: #000,
-	blue: #2b73d5
+  accent: #ff5500,
+  primary: #000,
+  blue: #2b73d5,
 );
 
 @function color($colorSelect) {
-	@return map_get( $colors, $colorSelect)
+  @return map_get($colors, $colorSelect);
 }
 
 // Transition
 //--------------------
-$transition: .2s;
+$transition: 0.2s;
 
 // Corner radius
 //--------------------

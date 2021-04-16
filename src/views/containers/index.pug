@@ -1,12 +1,42 @@
 extends ../layouts/base
 block content
-  main
+  main(style="padding-top: 40px")
     section
-      .container
-        h1.mt-5.mb-5 New Web App
+      .container 
+        .text-left
+          h2 Щоб у сертифікаті не було помилок, а лист із ним ми надіслали на правильну електронну адресу, уводьте дані уважно
+        div(style="max-width: 600px; margin-top: 30px")
+          form
+            .mb-3
+              label.form-label(for='surname') Прізвище
+              input#surname.form-control(type='text' aria-describedby='surnameHelp' required)
+            .mb-3
+              label.form-label(for='name') Ім'я
+              input#name.form-control(type='name' required)
+            .mb-3
+              label.form-label(for='email') Email
+              input#email.form-control(type='email' required)
+            .mt-5
+              button#create-certificate.btn.btn-primary.btn-lg(type='button') Створити сертифікат
 
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet deleniti dicta error fugit itaque laborum natus quibusdam quod reprehenderit. Aut autem in ipsa libero magnam nostrum obcaecati, repellendus sapiente.
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet deleniti dicta error fugit itaque laborum natus quibusdam quod reprehenderit. Aut autem in ipsa libero magnam nostrum obcaecati, repellendus sapiente.
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet deleniti dicta error fugit itaque laborum natus quibusdam quod reprehenderit. Aut autem in ipsa libero magnam nostrum obcaecati, repellendus sapiente.
+          #success-alert.alert.alert-primary(role='alert').mt-5.d-none
+            | Дякуємо! Ваші дані прийнято. 
+            a(href="/") Скачайте сертифікат
+            |  одразу або перейдіть за посиланням, яке надійде вам на електронну пошту
 
+        script.
+          const btn = document.getElementById('create-certificate');
+          const inputSurName = document.getElementById('surname');
+          const inputName = document.getElementById('name');
+          const inputEmail = document.getElementById('email');
+          const successAlert = document.getElementById('success-alert');
 
+          btn.addEventListener('click', () => {
+            if(!inputSurName.value) return inputSurName.classList.add('is-invalid')
+            if(!inputName.value) return inputName.classList.add('is-invalid')
+            if(!inputEmail.value) return inputEmail.classList.add('is-invalid')
+            inputSurName.classList.remove('is-invalid');
+            inputName.classList.remove('is-invalid');
+            inputEmail.classList.remove('is-invalid');
+            successAlert.classList.remove('d-none')
+          })

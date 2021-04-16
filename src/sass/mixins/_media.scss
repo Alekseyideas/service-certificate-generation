@@ -1,23 +1,94 @@
+$screen-md: 768px;
+$screen-lg: 1025px;
+$screen-xl: 1200px;
+$screen-xxl: 1400px;
+$screen-extraXl: 1920px;
+$screen-sm: 576px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: $screen-sm,
+  md: $screen-md,
+  lg: $screen-lg,
+  xl: $screen-xl,
+  xxl: $screen-xxl,
+);
+
+@mixin minXXl() {
+  @media screen and (min-width: $screen-xxl) {
+    @content;
+  }
+}
+@mixin maxXXl() {
+  @media screen and (max-width: $screen-xxl - 0.1) {
+    @content;
+  }
+}
 @mixin minXl() {
-	@media screen and (min-width: 1200px) {
-		@content
-	}
+  @media screen and (min-width: $screen-xl) {
+    @content;
+  }
+}
+
+@mixin maxXl() {
+  @media screen and (max-width: $screen-xl - 0.1) {
+    @content;
+  }
 }
 
 @mixin minLg() {
-	@media screen and (min-width: 992px) {
-		@content
-	}
+  @media screen and (min-width: $screen-lg) {
+    @content;
+  }
+}
+
+@mixin onlyLg() {
+  @media screen and (min-width: $screen-lg) and (max-width: $screen-xl - 0.1) {
+    @content;
+  }
+}
+
+@mixin maxLg() {
+  @media screen and (max-width: $screen-lg - 0.1) {
+    @content;
+  }
 }
 
 @mixin minMd() {
-	@media screen and (min-width: 768px) {
-		@content
-	}
+  @media screen and (min-width: $screen-md) {
+    @content;
+  }
+}
+
+@mixin maxMd() {
+  @media screen and (max-width: $screen-md - 0.1) {
+    @content;
+  }
 }
 
 @mixin minSm() {
-	@media screen and (min-width: 576px) {
-		@content
-	}
+  @media screen and (min-width: $screen-sm) {
+    @content;
+  }
+}
+@mixin maxSm() {
+  @media screen and (max-width: $screen-sm - 0.1) {
+    @content;
+  }
+}
+@mixin min-600() {
+  @media screen and (min-width: 600px) {
+    @content;
+  }
+}
+@mixin max-600() {
+  @media screen and (max-width: 600px - 0.1) {
+    @content;
+  }
+}
+
+@mixin onlySm() {
+  @media screen and (min-width: $screen-sm) and (max-width: 600px - 0.1) {
+    @content;
+  }
 }
