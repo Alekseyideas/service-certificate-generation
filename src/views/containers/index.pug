@@ -25,18 +25,30 @@ block content
             |  одразу або перейдіть за посиланням, яке надійде вам на електронну пошту
 
         script.
-          const btn = document.getElementById('create-certificate');
-          const inputSurName = document.getElementById('surname');
-          const inputName = document.getElementById('name');
-          const inputEmail = document.getElementById('email');
-          const successAlert = document.getElementById('success-alert');
+          document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('create-certificate');
+            const inputSurName = document.getElementById('surname');
+            const inputName = document.getElementById('name');
+            const inputEmail = document.getElementById('email');
+            const successAlert = document.getElementById('success-alert');
+            const loader = document.querySelector('.main-loader');
 
-          btn.addEventListener('click', () => {
-            if(!inputSurName.value) return inputSurName.classList.add('is-invalid')
-            if(!inputName.value) return inputName.classList.add('is-invalid')
-            if(!inputEmail.value) return inputEmail.classList.add('is-invalid')
-            inputSurName.classList.remove('is-invalid');
-            inputName.classList.remove('is-invalid');
-            inputEmail.classList.remove('is-invalid');
-            successAlert.classList.remove('d-none')
+            console.log(loader, 'loader');
+
+            btn.addEventListener('click', () => {
+              if(!inputSurName.value) return inputSurName.classList.add('is-invalid')
+              if(!inputName.value) return inputName.classList.add('is-invalid')
+              if(!inputEmail.value) return inputEmail.classList.add('is-invalid')
+              inputSurName.classList.remove('is-invalid');
+              inputName.classList.remove('is-invalid');
+              inputEmail.classList.remove('is-invalid');
+              loader.classList.remove('d-none');
+
+              setTimeout(() => {
+                successAlert.classList.remove('d-none')
+                loader.classList.add('d-none');
+              }, 5000)
+            })
+
           })
+          
